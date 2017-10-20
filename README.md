@@ -12,13 +12,13 @@
 
 首先安装 `cqhttp` 模块：
 
-```sh
+```bash
 npm install --save cqhttp
 ```
 
 然后在程序中使用：
 
-```py
+```es6
 const CQHttp = require('cqhttp');
 
 const bot = new CQHttp({
