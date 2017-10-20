@@ -61,7 +61,7 @@ module.exports = class CQHttp extends Callable {
         if (this.api_client) {
             return this.api_client.post(`/${action}`, params).then(response => {
                 let err = { status: response.status };
-                if (response.status < 400) {
+                if (response.status === 200) {
                     const data = response.data;
                     if (data.status === 'failed') {
                         err.retcode = data.retcode;
