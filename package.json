@@ -1,0 +1,17 @@
+{
+  "name": "cqhttp",
+  "version": "1.0.0",
+  "description": "A Node SDK for CoolQ HTTP API plugin.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Chien <richardchienthebest@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-route": "^3.2.0"
+  }
+}
