@@ -53,7 +53,7 @@ bot.listen(8080, '127.0.0.1');
 
 ### API 调用
 
-在设置了 `api_root` 的情况下，直接在 `CQHttp` 类的实例上就可以调用 API，第一个参数为要调用的接口（或者成为 action），第二个可选参数为一个对象用于传入参数，例如 `bot('send_private_msg', { user_id: 123456, message: 'hello' })`，这里的 `send_private_msg` 即为 [`/send_private_msg` 发送私聊消息](https://richardchien.github.io/coolq-http-api/#/API?id=send_private_msg-%E5%8F%91%E9%80%81%E7%A7%81%E8%81%8A%E6%B6%88%E6%81%AF) 中的 `/send_private_msg`。其它 API 见 [API 描述](https://richardchien.github.io/coolq-http-api/#/API)。
+在设置了 `api_root` 的情况下，直接在 `CQHttp` 类的实例上就可以调用 API，第一个参数为要调用的接口（或者称为 action），第二个可选参数为一个对象用于传入参数，例如 `bot('send_private_msg', { user_id: 123456, message: 'hello' })`，这里的 `send_private_msg` 即为 [`/send_private_msg` 发送私聊消息](https://richardchien.github.io/coolq-http-api/#/API?id=send_private_msg-%E5%8F%91%E9%80%81%E7%A7%81%E8%81%8A%E6%B6%88%E6%81%AF) 中的 `/send_private_msg`。其它 API 见 [API 描述](https://richardchien.github.io/coolq-http-api/#/API)。
 
 每个 API 调用最后都会由 `axios` 库来发出请求，如果网络无法连接，它可能会抛出一个异常，见 [Handling Errors](https://github.com/axios/axios#handling-errors)。而一旦请求成功，本 SDK 会判断 HTTP 响应状态码，只有当状态码为 200，且 `status` 字段为 `ok` 或 `async` 时，会返回 `data` 字段的内容，否则也抛出一个异常（是一个简单对象），在这个异常中你可以通过 `status` 和 `retcode` 属性来获取 HTTP 状态码和插件的 `retcode`（如果状态码不为 200，则 `retcode` 为 undefined），具体响应状态码和 `retcode` 的含义，见 [响应说明](https://richardchien.github.io/coolq-http-api/#/API?id=%E5%93%8D%E5%BA%94%E8%AF%B4%E6%98%8E)。
 
