@@ -65,11 +65,11 @@ module.exports = class CQHttp extends Callable {
                     const data = response.data;
                     if (data.status === 'failed') {
                         err.retcode = data.retcode;
-                        throw err;
+                        return Promise.reject(err);
                     }
                     return Promise.resolve(data.data);
                 } else {
-                    throw err;
+                    return Promise.reject(err);
                 }
             });
         }
