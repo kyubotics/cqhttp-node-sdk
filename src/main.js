@@ -8,14 +8,14 @@ const crypto = require('crypto');
 const axios = require('axios');
 
 module.exports = class CQHttp extends Callable {
-    constructor({ api_root, access_token, secret }) {
+    constructor({ apiRoot, accessToken, secret }) {
         super('__call__');
-        if (api_root) {
-            this.api_client = axios.create({
-                baseURL: api_root,
+        if (apiRoot) {
+            this.apiClient = axios.create({
+                baseURL: apiRoot,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': access_token ? `Token ${access_token}` : undefined
+                    'Authorization': accessToken ? `Token ${accessToken}` : undefined
                 }
             });
         }
@@ -58,8 +58,8 @@ module.exports = class CQHttp extends Callable {
     }
 
     __call__ (action, params = {}) {
-        if (this.api_client) {
-            return this.api_client.post(`/${action}`, params).then(response => {
+        if (this.apiClient) {
+            return this.apiClient.post(`/${action}`, params).then(response => {
                 let err = { status: response.status };
                 if (response.status === 200) {
                     const data = response.data;

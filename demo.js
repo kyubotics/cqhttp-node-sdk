@@ -1,8 +1,8 @@
 const CQHttp = require('./');
 
 const bot = new CQHttp({
-    api_root: 'http://127.0.0.1:5700/',
-    access_token: '123',
+    apiRoot: 'http://127.0.0.1:5700/',
+    accessToken: '123',
     secret: 'abc'
 });
 
