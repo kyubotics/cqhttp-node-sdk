@@ -22,8 +22,8 @@ npm install --save cqhttp
 const CQHttp = require('cqhttp');
 
 const bot = new CQHttp({
-    api_root: 'http://127.0.0.1:5700/',
-    access_token: '123',
+    apiRoot: 'http://127.0.0.1:5700/',
+    accessToken: '123',
     secret: 'abc'
 });
 
@@ -41,7 +41,7 @@ bot.listen(8080, '127.0.0.1');
 
 ### 创建实例
 
-首先创建 `CQHttp` 类的实例，传入 `api_root`，即为酷 Q HTTP API 插件的监听地址，如果你不需要调用 API，也可以不传入。Access token 和签名密钥也在这里传入，如果没有配置 `access_token` 或 `secret` 项，则不传。
+首先创建 `CQHttp` 类的实例，传入 `apiRoot`，即为酷 Q HTTP API 插件的监听地址，如果你不需要调用 API，也可以不传入。Access token 和签名密钥也在这里传入，如果没有配置 `access_token` 或 `secret` 项，则不传。
 
 ### 事件处理
 
