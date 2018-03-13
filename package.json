@@ -1,6 +1,6 @@
 {
   "name": "cqhttp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Node SDK for CoolQ HTTP API plugin.",
   "main": "src/main.js",
   "scripts": {
