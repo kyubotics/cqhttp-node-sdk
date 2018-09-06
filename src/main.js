@@ -24,7 +24,7 @@ module.exports = class CQHttp extends Callable {
         this.app = new Koa();
         this.app.use(bodyParser());
         this.app.use(route.post('/', this.handle.bind(this)));
-        this.callbacks = { message: [], event: [], request: [] };
+        this.callbacks = { message: [], event: [], notice: [], request: [] };
     }
 
     handle (ctx) {

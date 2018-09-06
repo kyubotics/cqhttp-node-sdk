@@ -13,8 +13,32 @@ bot.on('message', context => {
     });
 });
 
+/** 版本3，请用 event */
 bot.on('event', context => {
     if (context.event === 'group_increase') {
+        // 处理群成员添加事件
+        bot('get_group_member_info', {
+            group_id: context.group_id,
+            user_id: context.user_id
+        }).then(data => {
+            const name = data.nickname || '新人';
+            bot('send_group_msg_async', {
+                group_id: context.group_id,
+                message: `欢迎${name}～`
+            }).catch(err => { });
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+    // 忽略其它事件
+});
+
+/** 
+ * 版本4，请用 notice 
+ * docs： https://cqhttp.cc/docs/4.4/#/Post?id=%E7%BE%A4%E6%88%90%E5%91%98%E5%A2%9E%E5%8A%A0
+ * */
+bot.on('notice', context => {
+    if (context.notice_type === 'group_increase') {
         // 处理群成员添加事件
         bot('get_group_member_info', {
             group_id: context.group_id,
