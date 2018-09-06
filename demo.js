@@ -13,7 +13,9 @@ bot.on('message', context => {
     });
 });
 
-/** 版本3，请用 event */
+/**
+ * 版本 3.x，请用 event
+ */
 bot.on('event', context => {
     if (context.event === 'group_increase') {
         // 处理群成员添加事件
@@ -33,10 +35,9 @@ bot.on('event', context => {
     // 忽略其它事件
 });
 
-/** 
- * 版本4，请用 notice 
- * docs： https://cqhttp.cc/docs/4.4/#/Post?id=%E7%BE%A4%E6%88%90%E5%91%98%E5%A2%9E%E5%8A%A0
- * */
+/**
+ * 版本 4.x，请用 notice
+ */
 bot.on('notice', context => {
     if (context.notice_type === 'group_increase') {
         // 处理群成员添加事件

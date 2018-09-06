@@ -45,7 +45,7 @@ bot.listen(8080, '127.0.0.1');
 
 ### 事件处理
 
-`on()` 方法用于添加对应上报类型（`post_type`）的回调函数，目前有三个上报类型 `message`、`event`、`request`，一个上报类型可以有多个回调，收到上报时按添加顺序来调用。
+`on()` 方法用于添加对应上报类型（`post_type`）的回调函数，目前有三个上报类型 `message`、`event`（插件 v3.x）、`notice`（插件 v4.x）、`request`，一个上报类型可以有多个回调，收到上报时按添加顺序来调用。
 
 回调函数接受一个参数 `context`，即为上报的数据，具体数据内容见 [事件上报](https://richardchien.github.io/coolq-http-api/#/Post)。
 
