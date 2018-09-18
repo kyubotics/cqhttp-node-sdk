@@ -11,13 +11,9 @@ module.exports = class CQHttp extends Callable {
     constructor({ apiRoot, accessToken, secret }) {
         super('__call__');
         if (apiRoot) {
-            this.apiClient = axios.create({
-                baseURL: apiRoot,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': accessToken ? `Token ${accessToken}` : undefined
-                }
-            });
+            const headers = { 'Content-Type': 'application/json' }
+            if (accessToken) headers['Authorization'] = `Token ${accessToken}`;
+            this.apiClient = axios.create({ baseURL: apiRoot, headers: headers });
         }
 
         this.secret = secret;
@@ -60,7 +56,9 @@ module.exports = class CQHttp extends Callable {
     __call__ (action, params = {}) {
         if (this.apiClient) {
             return this.apiClient.post(`/${action}`, params).then(response => {
-                let err = { status: response.status };
+                let err = {
+                    status: response.status
+                };
                 if (response.status === 200) {
                     const data = response.data;
                     if (data.status === 'failed') {
