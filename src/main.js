@@ -8,35 +8,22 @@ const crypto = require('crypto');
 const axios = require('axios');
 
 module.exports = class CQHttp extends Callable {
-    constructor({
-        apiRoot,
-        accessToken,
-        secret
-    }) {
+    constructor({ apiRoot, accessToken, secret }) {
         super('__call__');
         if (apiRoot) {
-            const headers = {
-                'Content-Type': 'application/json'
-            }
-            if (accessToken) headers.Authorization = `Token ${accessToken}`;
-            this.apiClient = axios.create({
-                baseURL: apiRoot,
-                headers: headers
-            });
+            const headers = { 'Content-Type': 'application/json' }
+            if (accessToken) headers['Authorization'] = `Token ${accessToken}`;
+            this.apiClient = axios.create({ baseURL: apiRoot, headers: headers });
         }
 
         this.secret = secret;
         this.app = new Koa();
         this.app.use(bodyParser());
         this.app.use(route.post('/', this.handle.bind(this)));
-        this.callbacks = {
-            message: [],
-            event: [],
-            request: []
-        };
+        this.callbacks = { message: [], event: [], notice: [], request: [] };
     }
 
-    handle(ctx) {
+    handle (ctx) {
         if (this.secret) {
             // check signature
             ctx.assert(ctx.request.headers['x-signature'] !== undefined, 401);
@@ -62,11 +49,11 @@ module.exports = class CQHttp extends Callable {
         ctx.response.body = JSON.stringify(result);
     }
 
-    on(post_type, callback) {
+    on (post_type, callback) {
         this.callbacks[post_type].push(callback);
     }
 
-    __call__(action, params = {}) {
+    __call__ (action, params = {}) {
         if (this.apiClient) {
             return this.apiClient.post(`/${action}`, params).then(response => {
                 let err = {
@@ -86,7 +73,7 @@ module.exports = class CQHttp extends Callable {
         }
     }
 
-    listen(...args) {
+    listen (...args) {
         this.app.listen(...args);
     }
 }
