@@ -53,7 +53,7 @@ module.exports = class CQHttp extends Callable {
         this.callbacks[post_type].push(callback);
     }
 	
-	delete (post_type,index) {
+    delete (post_type,index) {
         this.callbacks[post_type].splice(index,1);
     }
 
