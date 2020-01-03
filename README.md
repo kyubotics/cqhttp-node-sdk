@@ -1,12 +1,12 @@
-# CQHttp Node SDK
+# CQHTTP Node SDK
 
 [![License](https://img.shields.io/npm/l/cqhttp.svg)](LICENSE)
 [![NPM](https://img.shields.io/npm/v/cqhttp.svg)](https://www.npmjs.com/package/cqhttp)
 [![NPM Downloads](https://img.shields.io/npm/dt/cqhttp.svg)](https://www.npmjs.com/package/cqhttp)
 
-本项目为酷 Q 的 CoolQ HTTP API 插件的 Node SDK，封装了 web server 相关的代码，让使用 Node.js 的开发者能方便地开发插件。仅支持插件 3.0.0 或更新版本。
+本项目为 酷Q 的 CQHTTP 插件的 Node SDK，封装了 web server 相关的代码，让使用 Node.js 的开发者能方便地开发插件。仅支持插件 4.0.0 或更新版本。
 
-关于 CoolQ HTTP API 插件，见 [richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)。
+关于 CQHTTP 插件，见 [richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)。
 
 ## 用法
 
@@ -41,15 +41,15 @@ bot.listen(8080, '127.0.0.1');
 
 ### 创建实例
 
-首先创建 `CQHttp` 类的实例，传入 `apiRoot`，即为酷 Q HTTP API 插件的监听地址，如果你不需要调用 API，也可以不传入。Access token 和签名密钥也在这里传入，如果没有配置 `access_token` 或 `secret` 项，则不传。
+首先创建 `CQHttp` 类的实例，传入 `apiRoot`，即为 CQHTTP 插件的监听地址，如果你不需要调用 API，也可以不传入。Access token 和签名密钥也在这里传入，如果没有配置 CQHTTP 插件的 `access_token` 或 `secret` 项，则不传。
 
 ### 事件处理
 
-`on()` 方法用于添加对应上报类型（`post_type`）的回调函数，目前有三个上报类型 `message`、`event`（插件 v3.x）、`notice`（插件 v4.x）、`request`，一个上报类型可以有多个回调，收到上报时按添加顺序来调用。
+`on()` 方法用于添加对应上报类型（`post_type`）的回调函数，目前有三个上报类型 `message`、`notice`、`request`，一个上报类型可以有多个回调，收到上报时按添加顺序来调用。
 
-回调函数接受一个参数 `context`，即为上报的数据，具体数据内容见 [事件上报](https://cqhttp.cc/docs/#/Post)。
+回调函数接受一个参数 `context`，即为上报的数据，打印可查看其内容，具体数据字段含义见 [事件上报](https://cqhttp.cc/docs/#/Post)。
 
-函数可以不返回值，也可以返回一个对象，会被自动作为 JSON 响应返回给 HTTP API 插件，具体见 [上报请求的响应数据格式](https://cqhttp.cc/docs/#/Post?id=%E4%B8%8A%E6%8A%A5%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F)。如果同一个上报类型添加了多个回调，只有最后一个有返回值的回调的返回值会被返回给插件。
+函数可以不返回值，也可以返回一个对象，会被自动作为 JSON 响应返回给 CQHTTP 插件，具体见 [上报请求的响应数据格式](https://cqhttp.cc/docs/#/Post?id=%E4%B8%8A%E6%8A%A5%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F)。如果同一个上报类型添加了多个回调，只有最后一个有返回值的回调的返回值会被返回给插件。
 
 ### API 调用
 
@@ -59,7 +59,7 @@ bot.listen(8080, '127.0.0.1');
 
 ### 运行实例
 
-使用装饰器定义好处理函数之后，调用 `bot.listen()` 即可运行。这个方法第一个参数为监听端口，第二个参数为监听的 host，来指定服务端需要运行在哪个地址，然后在 HTTP API 插件的配置文件中，在 `post_url` 项中配置此地址（`http://host:port/`）。
+使用装饰器定义好处理函数之后，调用 `bot.listen()` 即可运行。这个方法第一个参数为监听端口，第二个参数为监听的 host，来指定服务端需要运行在哪个地址，然后在 CQHTTP 插件的配置文件中，在 `post_url` 项中配置此地址（`http://host:port/`）。
 
 ## 遇到问题
 

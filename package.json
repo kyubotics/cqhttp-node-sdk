@@ -1,7 +1,7 @@
 {
   "name": "cqhttp",
-  "version": "1.1.1",
-  "description": "A Node SDK for CoolQ HTTP API plugin.",
+  "version": "1.2.0",
+  "description": "A Node SDK for CQHTTP.",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,5 +14,5 @@
     "koa-bodyparser": "^4.2.0",
     "koa-route": "^3.2.0"
   },
-  "repository": "richardchien/cqhttp-node-sdk"
+  "repository": "cqmoe/cqhttp-node-sdk"
 }
