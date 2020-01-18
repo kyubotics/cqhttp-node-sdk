@@ -3,6 +3,8 @@
 [![License](https://img.shields.io/npm/l/cqhttp.svg)](LICENSE)
 [![NPM](https://img.shields.io/npm/v/cqhttp.svg)](https://www.npmjs.com/package/cqhttp)
 [![NPM Downloads](https://img.shields.io/npm/dt/cqhttp.svg)](https://www.npmjs.com/package/cqhttp)
+[![QQ 版本发布群](https://img.shields.io/badge/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E7%BE%A4-218529254-green.svg)](https://jq.qq.com/?_wv=1027&k=5Nl0zhE)
+[![Telegram 版本发布频道](https://img.shields.io/badge/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E9%A2%91%E9%81%93-join-green.svg)](https://t.me/cqhttp_release)
 
 本项目为 酷Q 的 CQHTTP 插件的 Node SDK，封装了 web server 相关的代码，让使用 Node.js 的开发者能方便地开发插件。仅支持插件 4.0.0 或更新版本。
 
