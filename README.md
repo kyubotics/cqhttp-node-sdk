@@ -1,3 +1,5 @@
+# 本项目已停止维护，你仍可以继续使用本项目，但建议尽快迁移至功能更丰富、文档更完善的 [koishijs/koishi](https://github.com/koishijs/koishi)、[momocow/node-cq-websocket](https://github.com/momocow/node-cq-websocket) 等框架
+
 # CQHTTP Node SDK
 
 [![License](https://img.shields.io/npm/l/cqhttp.svg)](LICENSE)
